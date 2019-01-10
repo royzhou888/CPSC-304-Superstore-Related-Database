@@ -1,0 +1,70 @@
+
+List of all SQL used
+
+
+For Supplier:
+
+insert into supplier values (:bind1, :bind2,:bind3,:bind4)
+
+DELETE FROM supplier WHERE phone =:bind1
+
+update supplier set name =:bind2 where phone =:bind1
+
+update supplier set address =:bind3 where phone =:bind1
+
+update supplier set status =:bind4 where phone =:bind1
+
+SELECT * FROM supplier WHERE ". $name
+
+insert into EMPLOYEE values (:bind1, :bind2,:bind3,:bind4,:bind5)
+
+
+
+For Login and Order:
+
+insert into Order_place values (seq_order.nextval,seq_order_num.nextval, :bind1, :bind2, :bind3,:bind4,DEFAULT )
+
+insert into Order_place values (seq_order.nextval,seq_order_num.currval, :bind1, :bind2, :bind3,:bind4,DEFAULT )
+
+
+
+For Employee:
+
+insert into Employee values (:bind1, :bind2,:bind3,:bind4,:bind5)
+
+insert into Manager values (:bind1, :bind2,:bind3,:bind4)
+
+insert into Employee values (:bind1, :bind2,:bind3,:bind4,:bind5)
+
+DELETE FROM EMPLOYEE WHERE sin =:bind1
+
+update EMPLOYEE set name =:bind2 where sin =:bind1
+
+update EMPLOYEE set position =:bind3 where sin =:bind1
+
+update EMPLOYEE set rating =:bind4 where sin =:bind1
+
+update EMPLOYEE set manager_sin =:bind5 where sin =:bind1
+
+
+
+For Inventory:
+
+insert into inventory values (:bind5, :bind2,:bind1,:bind4, :bind3)
+
+DELETE FROM inventory WHERE part =:bind1
+
+update inventory set name =:bind2 where part =:bind1
+
+update inventory set supplier =:bind3 where part =:bind1
+
+SELECT s.name,s.address,s.phone,s.status FROM inventory i,supplier s WHERE " . $name . " and s.phone = i.supplier"
+
+select sumitem,i2.part,i2.name,i2.supplier,i2.quantity 
+      from inventory i2,(select sum(o.number_of_item)as sumItem,i.part from order_place o,inventory i 
+     where o.part_num=i.part group by o.part_num ".$name."
+     where i2.part=temp.part
+
+select * from (select avg(number_of_item)as avg,part_num from order_place group by part_num) temp where temp.avg = (select max(avg(number_of_item)) from order_place o group by part_num)
+
+select temp.avg,temp.part_num,i.name,i.supplier,i.quantity,i.price from (select avg(number_of_item)as avg,part_num from order_place group by part_num) temp,inventory i where temp.avg = (select max(avg(number_of_item)) from order_place o group by part_num)and temp.part_num = i.part;

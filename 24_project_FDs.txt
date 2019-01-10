@@ -1,0 +1,26 @@
+List FDs applicable
+
+
+employee_sin -> employee_name, employee_position, employee_rating, employee_manager_sin 
+ES -> EN,EP,ER,MS
+
+manager_sin -> manager_name, manager_position, manager_rating
+MS -> MA,MP,MR
+
+supplier_phone -> supplier_name, supplier_phone, supplier_status 
+SA -> SN,SP,SS
+
+supplier_name, supplier_phone -> supplier_address
+SN,SP -> SA
+
+sequence_order -> order#, order_number_of_item, order_customer_phone#, employee_sin
+seqO -> O#, ON, CPhone, ES
+
+inventory_part# -> inventory_current_quantity, inventory_product_name, inventory_product_price, inventory_product_suppliers
+IP# -> IQ,IPN, IPP, IPS
+
+customer_phone -> customer_name, customer_address, customer_points
+CPhone -> CN,CA, CPoint
+
+customer_name, customer_address -> customer_phone
+CN, CA -> Cphone

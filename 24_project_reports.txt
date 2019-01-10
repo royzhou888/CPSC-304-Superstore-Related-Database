@@ -1,0 +1,5 @@
+Group Number: 24
+
+Our project is a supermarket management web application. Employees can log into their account to make orders. In addition , managers can manage order, suppliers, and other employees. More specifically, they can  add, update and delete informtion from table of inventory, employee,and supplier. Order histories can be viewed by both employees and customers. In addition, manager can find the suppliers' information of a product, the total number of order for each inventory, and the average number of items per order for each inventory.
+
+We used to have points for customers but we did not include it in our final project because this function is similar to many of the other functions implemented in manageEmployee and manageInventory. Therefore, we decided not to include the points attribute in customer entity. 
